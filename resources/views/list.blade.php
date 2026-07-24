@@ -5,23 +5,6 @@
     <div class="row">
      <div class="col-4 mt-5">
 
-                @session('createSuccess')
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>{{ session('createSuccess') }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endsession
-                 @session('deleteSuccess')
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>{{ session('deleteSuccess') }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endsession
-        
-
-
-
-
        <form action="{{ route('createBlog') }}" method="post" enctype="multipart/form-data" class="g-3">
         @csrf
              <div class="mb-3">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Alert;
 
 class BlogController extends Controller
 {
@@ -32,7 +33,9 @@ class BlogController extends Controller
 
         } 
         Blog::create($data);
-        return back()->with('createSuccess','Blog created successfully');
+        Alert::success('Blog created ', 'Blog Created successfully');
+
+        return back();
         
     }
 
@@ -45,10 +48,9 @@ class BlogController extends Controller
        unlink(public_path().'/blogImages/'.$oldImage);
     }
     Blog::where('id',$id)->delete();
-    return back()->with('deleteSuccess','Blog deleted successfully');
-    
-        
+    Alert::success('Blog deleted ', 'Blog deleted successfully');
 
+    return back();
     }
 
 
@@ -57,6 +59,14 @@ class BlogController extends Controller
         $updateData=Blog::find($id);
         return view('updatePage',compact('updateData'));
     }
+    //updateBlogData
+    public function updateBlog($id,Request $request){
+        $data=Blog::find($id);
+        
+    }
+        
+    
+    
     
 
     //Private

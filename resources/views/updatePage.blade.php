@@ -5,7 +5,8 @@
         <div class="row">
 
         <a href="{{route('listBlog')}}" class="btn btn-secondary col-2 mt-2">Go to List Page</a>
-            <form action="">
+            <form action="{{route('updateBlog',$updateData->id)}}" method="post" enctype="multipart/form-data">
+                @csrf
              <div class="row">
                     <div class="col-4 mt-5">
                      <img src="{{asset('blogImages/'.$updateData->image)}}" alt="" class="w-50 img-thumbnail rounded " id="outputImage">
@@ -23,7 +24,7 @@
                         <input type="text" value="{{ $updateData->writer}}" name="writer" id="" class="form-control @error('writer') is-invalid @enderror mt-2">
                     </div>
                     <div>
-                      <a href=" " class="btn btn-dark mt-3">Update</a>
+                     <input type="submit" value="update" class="btn btn-success mt-3">
                     
                     </div>
                 </div>
